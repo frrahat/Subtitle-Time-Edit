@@ -152,7 +152,7 @@ public:
 		else if(t[3]<0){t[3]+=1000;t[2]--;}
 		for(int i=2;i>0;i--){
 			if(t[i]>59){t[i]=59;t[i-1]++;}
-			else if(t[i]<0){t[i]+=t[i]+60;t[i-1]--;}
+			else if(t[i]<0){t[i]+=60;t[i-1]--;}
 		}
 	}
 
