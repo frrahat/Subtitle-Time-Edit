@@ -7,6 +7,18 @@
 
 using namespace std;
 
+
+int divide(int dividend, int divider){
+	int result=dividend/divider;
+	
+	return dividend<0?result-1:result;
+}
+
+int mod(int a, int b){
+	int r = a % b;
+    return r < 0 ? r + b : r;
+}
+
 class Time{
 
 public:
@@ -148,11 +160,9 @@ public:
 	}
 	
 	void roundTime(int t[]){
-		if(t[3]>999){t[3]=999;t[2]++;}
-		else if(t[3]<0){t[3]+=1000;t[2]--;}
+		if(t[3]>999 || t[3]<0){t[2]+=divide(t[3],1000);t[3]=mod(t[3],1000);}
 		for(int i=2;i>0;i--){
-			if(t[i]>59){t[i]=59;t[i-1]++;}
-			else if(t[i]<0){t[i]+=60;t[i-1]--;}
+			if(t[i]>59 || t[i]<0){t[i-1]+=divide(t[i],60);t[i]=mod(t[i],60);}
 		}
 	}
 
